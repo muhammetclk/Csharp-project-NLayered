@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.DataAccess.Concrete
 {
-    class ProductDal
+     public class ProductDal
     {
         public List<Product> GetAll()
         {
