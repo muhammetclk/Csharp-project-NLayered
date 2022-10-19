@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Northwind.Business.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Northwind.WebFormsUl
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //buradan business'a erislir.ProductDal yasak.
+            ProductManager productManager = new ProductManager();
+            dgwProduct.DataSource = productManager.GetAll();
         }
     }
 }
