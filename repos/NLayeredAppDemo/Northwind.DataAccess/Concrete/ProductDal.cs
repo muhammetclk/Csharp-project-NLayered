@@ -11,16 +11,26 @@ namespace Northwind.DataAccess.Concrete
     {
         public List<Product> GetAll()
         {
-
+            using(NorthwindContext context=new NorthwindContext())
+            {
+                return context.Products.ToList();
+            }
 
         }
-        public List<Product> Get(int id)
+        public Product Get(int id)
         {
-
+            using(NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.SingleOrDefault(p=>p.ProductId==id);
+            }
         }
         public void Add(Product product)
         {
-
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                context.Products.Add(product);
+                context.SaveChanges();
+            }
 
         }
         public void Update(Product product)
