@@ -1,17 +1,18 @@
-﻿using Northwind.Entities.Concrete;
+﻿using Northwind.DataAccess.Abstract;
+using Northwind.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.DataAccess.Concrete
+namespace Northwind.DataAccess.Concrete.EntityFramework
 {
-     public class ProductDal
+    public class ProductDal : IProductDal
     {
         public List<Product> GetAll()
         {
-            using(NorthwindContext context=new NorthwindContext())
+            using (NorthwindContext context = new NorthwindContext())
             {
                 return context.Products.ToList();
             }
@@ -19,9 +20,9 @@ namespace Northwind.DataAccess.Concrete
         }
         public Product Get(int id)
         {
-            using(NorthwindContext context = new NorthwindContext())
+            using (NorthwindContext context = new NorthwindContext())
             {
-                return context.Products.SingleOrDefault(p=>p.ProductId==id);
+                return context.Products.SingleOrDefault(p => p.ProductId == id);
             }
         }
         public void Add(Product product)
