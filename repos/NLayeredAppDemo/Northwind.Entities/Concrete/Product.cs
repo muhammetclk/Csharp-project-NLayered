@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Entities.Concrete
 {
-    public class Product
+    public class Product:IEntity//veritabani nesnesisin anlamina geliyor.
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }

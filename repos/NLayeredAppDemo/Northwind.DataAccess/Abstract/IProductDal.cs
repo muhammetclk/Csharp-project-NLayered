@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace Northwind.DataAccess.Abstract
 {
-    public interface IProductDal
-    {
-         List<Product> GetAll();
-         Product Get(int id);
-         void Add(Product product);
-         void Update(Product product);
-         void Delete(Product product);
+    public interface IProductDal:IEntityRepository<Product>
+    {//EfProduvtDal IProductDal dan implemente ediliyor.
+        //suan ici bos ama IProductDal da IEntityRepositoryden implemente ediliyor.
+        //burda Product IEntityRepositorye referans olarak gidiyor baska bir yerde ornegin Customerda gidebilir hale geldi.
+         
     }
 }
