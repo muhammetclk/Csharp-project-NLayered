@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.DataAccess.Concrete.EntityFramework
 {
-    public class ProductDal : IProductDal
+    public class EfProductDal : IProductDal
     {
         public List<Product> GetAll()
         {
