@@ -1,4 +1,5 @@
-﻿using Northwind.DataAccess.Abstract;
+﻿using Northwind.Business.Abstract;
+using Northwind.DataAccess.Abstract;
 using Northwind.DataAccess.Concrete;
 using Northwind.DataAccess.Concrete.EntityFramework;
 using Northwind.Entities.Concrete;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Business.Concrete
 {
-    public class ProductManager
+    public class ProductManager:IProductService
     {
         // EfProductDal _productDal = new EfProductDal();//bu sekilde newlenmesi dogru deil.
 
