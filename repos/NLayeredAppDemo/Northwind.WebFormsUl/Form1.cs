@@ -22,9 +22,14 @@ namespace Northwind.WebFormsUl
             InitializeComponent();
             //burayi ilerde düzelticez.
             _productService = new ProductManager(new EfProductDal());
+            _categoryService = new CategoryManager(new EfCategoryDal());
         }
         IProductService _productService;
-
+        ICategoryService _categoryService;
+        void LoadProduct()
+        {
+            dgwProduct.DataSource = _productService.GetAll();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             //buradan business'a erislir.ProductDal yasak.
@@ -32,9 +37,30 @@ namespace Northwind.WebFormsUl
 
             //ProductManager productManager = new ProductManager(new NhProductDal());//ProductManager bizden bir IProductDal istiyor ona hem EfProductDal hem de NhProductDal verebliriz.
             //farkli katmandan newleme  yapmamaliyiz.O yuzden IProductService tipinde tanimliyoruz.
-            
+            LoadProduct();
+            LoadCategory();
+        }
 
-            dgwProduct.DataSource = _productService.GetAll();
+        private void LoadCategory()
+        {
+            cbxCategory.DataSource = _categoryService.GetAll();
+            cbxCategory.DisplayMember = "CategoryName";//görünen category adı olmali
+            cbxCategory.ValueMember = "CategoryId";//sectigimizde ise ıd sindeki degerleri getirmeli
+        }
+
+        private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgwProduct.DataSource = _productService.GetProductsByCategory(Convert.ToInt32(cbxCategory.SelectedValue));
+
+
+            }
+            catch 
+            {
+
+
+            }
         }
     }
 }

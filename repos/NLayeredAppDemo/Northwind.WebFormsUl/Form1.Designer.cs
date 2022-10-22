@@ -31,11 +31,11 @@ namespace Northwind.WebFormsUl
         {
             this.dgwProduct = new System.Windows.Forms.DataGridView();
             this.gbxCategory = new System.Windows.Forms.GroupBox();
-            this.gbxProductName = new System.Windows.Forms.GroupBox();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.tbxProductName = new System.Windows.Forms.TextBox();
-            this.lblProductName = new System.Windows.Forms.Label();
             this.cbxCategory = new System.Windows.Forms.ComboBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.gbxProductName = new System.Windows.Forms.GroupBox();
+            this.lblProductName = new System.Windows.Forms.Label();
+            this.tbxProductName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.gbxCategory.SuspendLayout();
             this.gbxProductName.SuspendLayout();
@@ -60,6 +60,24 @@ namespace Northwind.WebFormsUl
             this.gbxCategory.TabStop = false;
             this.gbxCategory.Text = "Category Search";
             // 
+            // cbxCategory
+            // 
+            this.cbxCategory.FormattingEnabled = true;
+            this.cbxCategory.Location = new System.Drawing.Point(114, 33);
+            this.cbxCategory.Name = "cbxCategory";
+            this.cbxCategory.Size = new System.Drawing.Size(121, 21);
+            this.cbxCategory.TabIndex = 4;
+            this.cbxCategory.SelectedIndexChanged += new System.EventHandler(this.cbxCategory_SelectedIndexChanged);
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(60, 36);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(49, 13);
+            this.lblCategory.TabIndex = 0;
+            this.lblCategory.Text = "Category";
+            // 
             // gbxProductName
             // 
             this.gbxProductName.Controls.Add(this.lblProductName);
@@ -71,22 +89,6 @@ namespace Northwind.WebFormsUl
             this.gbxProductName.TabStop = false;
             this.gbxProductName.Text = "Product Search";
             // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(60, 36);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(49, 13);
-            this.lblCategory.TabIndex = 0;
-            this.lblCategory.Text = "Category";
-            // 
-            // tbxProductName
-            // 
-            this.tbxProductName.Location = new System.Drawing.Point(114, 34);
-            this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(121, 20);
-            this.tbxProductName.TabIndex = 1;
-            // 
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
@@ -96,13 +98,12 @@ namespace Northwind.WebFormsUl
             this.lblProductName.TabIndex = 3;
             this.lblProductName.Text = "Product";
             // 
-            // cbxCategory
+            // tbxProductName
             // 
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(114, 33);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(121, 21);
-            this.cbxCategory.TabIndex = 4;
+            this.tbxProductName.Location = new System.Drawing.Point(114, 34);
+            this.tbxProductName.Name = "tbxProductName";
+            this.tbxProductName.Size = new System.Drawing.Size(121, 20);
+            this.tbxProductName.TabIndex = 1;
             // 
             // Form1
             // 
