@@ -54,6 +54,9 @@ namespace Northwind.WebFormsUl
             cbxCategoryId.DataSource = _categoryService.GetAll();
             cbxCategoryId.DisplayMember = "CategoryName";
             cbxCategoryId.ValueMember = "CategoryId";
+            cbxCategoryIdUpdate.DataSource = _categoryService.GetAll();
+            cbxCategoryIdUpdate.DisplayMember = "CategoryName";
+            cbxCategoryIdUpdate.ValueMember = "CategoryId";
         }
 
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,6 +102,32 @@ namespace Northwind.WebFormsUl
             MessageBox.Show("Product Added");
             LoadProduct();
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            _productService.Update(new Product
+            {
+                ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
+                ProductName = tbxProductName2Update.Text,
+                CategoryId = Convert.ToInt32(cbxCategoryIdUpdate.SelectedValue),
+                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
+                UnitsInStock = Convert.ToInt16(tbxUnitsInStockUpdate.Text),
+                QuantityPerUnit = tbxQuantityPerUnitUpdate.Text
+
+            }) ;
+            MessageBox.Show("Product Updated");
+            LoadProduct();
+        }
+
+        private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            tbxProductName2Update.Text= dgwProduct.CurrentRow.Cells[1].Value.ToString();
+            cbxCategoryIdUpdate.SelectedValue=dgwProduct.CurrentRow.Cells[2].Value;
+            tbxUnitPriceUpdate.Text=dgwProduct.CurrentRow.Cells[3].Value.ToString();
+            tbxUnitsInStockUpdate.Text=dgwProduct.CurrentRow.Cells[4].Value.ToString();
+            tbxQuantityPerUnitUpdate.Text=dgwProduct.CurrentRow.Cells[5].Value.ToString();
         }
     }
 }

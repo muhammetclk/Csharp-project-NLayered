@@ -48,10 +48,23 @@ namespace Northwind.WebFormsUl
             this.lblUnitPrice = new System.Windows.Forms.Label();
             this.lblCategoryId = new System.Windows.Forms.Label();
             this.lblProductName2 = new System.Windows.Forms.Label();
+            this.gbxProductUpdate = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.cbxCategoryIdUpdate = new System.Windows.Forms.ComboBox();
+            this.tbxQuantityPerUnitUpdate = new System.Windows.Forms.TextBox();
+            this.tbxUnitsInStockUpdate = new System.Windows.Forms.TextBox();
+            this.tbxUnitPriceUpdate = new System.Windows.Forms.TextBox();
+            this.tbxProductName2Update = new System.Windows.Forms.TextBox();
+            this.lblQuantityPerUnitUpdate = new System.Windows.Forms.Label();
+            this.lblUnitsInStockUpdate = new System.Windows.Forms.Label();
+            this.lblUnitPriceUpdate = new System.Windows.Forms.Label();
+            this.lblCategoryIdUpdate = new System.Windows.Forms.Label();
+            this.lblProductname2Update = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.gbxCategory.SuspendLayout();
             this.gbxProductName.SuspendLayout();
             this.gbxProductAdd.SuspendLayout();
+            this.gbxProductUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgwProduct
@@ -61,6 +74,7 @@ namespace Northwind.WebFormsUl
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(682, 111);
             this.dgwProduct.TabIndex = 0;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // gbxCategory
             // 
@@ -230,11 +244,123 @@ namespace Northwind.WebFormsUl
             this.lblProductName2.TabIndex = 0;
             this.lblProductName2.Text = "Product Name";
             // 
+            // gbxProductUpdate
+            // 
+            this.gbxProductUpdate.Controls.Add(this.btnUpdate);
+            this.gbxProductUpdate.Controls.Add(this.cbxCategoryIdUpdate);
+            this.gbxProductUpdate.Controls.Add(this.tbxQuantityPerUnitUpdate);
+            this.gbxProductUpdate.Controls.Add(this.tbxUnitsInStockUpdate);
+            this.gbxProductUpdate.Controls.Add(this.tbxUnitPriceUpdate);
+            this.gbxProductUpdate.Controls.Add(this.tbxProductName2Update);
+            this.gbxProductUpdate.Controls.Add(this.lblQuantityPerUnitUpdate);
+            this.gbxProductUpdate.Controls.Add(this.lblUnitsInStockUpdate);
+            this.gbxProductUpdate.Controls.Add(this.lblUnitPriceUpdate);
+            this.gbxProductUpdate.Controls.Add(this.lblCategoryIdUpdate);
+            this.gbxProductUpdate.Controls.Add(this.lblProductname2Update);
+            this.gbxProductUpdate.Location = new System.Drawing.Point(342, 359);
+            this.gbxProductUpdate.Name = "gbxProductUpdate";
+            this.gbxProductUpdate.Size = new System.Drawing.Size(271, 192);
+            this.gbxProductUpdate.TabIndex = 4;
+            this.gbxProductUpdate.TabStop = false;
+            this.gbxProductUpdate.Text = "Update a Product";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(155, 169);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 23);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Update a Product";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // cbxCategoryIdUpdate
+            // 
+            this.cbxCategoryIdUpdate.FormattingEnabled = true;
+            this.cbxCategoryIdUpdate.Location = new System.Drawing.Point(114, 58);
+            this.cbxCategoryIdUpdate.Name = "cbxCategoryIdUpdate";
+            this.cbxCategoryIdUpdate.Size = new System.Drawing.Size(100, 21);
+            this.cbxCategoryIdUpdate.TabIndex = 4;
+            // 
+            // tbxQuantityPerUnitUpdate
+            // 
+            this.tbxQuantityPerUnitUpdate.Location = new System.Drawing.Point(114, 147);
+            this.tbxQuantityPerUnitUpdate.Name = "tbxQuantityPerUnitUpdate";
+            this.tbxQuantityPerUnitUpdate.Size = new System.Drawing.Size(100, 20);
+            this.tbxQuantityPerUnitUpdate.TabIndex = 9;
+            // 
+            // tbxUnitsInStockUpdate
+            // 
+            this.tbxUnitsInStockUpdate.Location = new System.Drawing.Point(114, 116);
+            this.tbxUnitsInStockUpdate.Name = "tbxUnitsInStockUpdate";
+            this.tbxUnitsInStockUpdate.Size = new System.Drawing.Size(100, 20);
+            this.tbxUnitsInStockUpdate.TabIndex = 8;
+            // 
+            // tbxUnitPriceUpdate
+            // 
+            this.tbxUnitPriceUpdate.Location = new System.Drawing.Point(114, 86);
+            this.tbxUnitPriceUpdate.Name = "tbxUnitPriceUpdate";
+            this.tbxUnitPriceUpdate.Size = new System.Drawing.Size(100, 20);
+            this.tbxUnitPriceUpdate.TabIndex = 7;
+            // 
+            // tbxProductName2Update
+            // 
+            this.tbxProductName2Update.Location = new System.Drawing.Point(114, 27);
+            this.tbxProductName2Update.Name = "tbxProductName2Update";
+            this.tbxProductName2Update.Size = new System.Drawing.Size(100, 20);
+            this.tbxProductName2Update.TabIndex = 5;
+            // 
+            // lblQuantityPerUnitUpdate
+            // 
+            this.lblQuantityPerUnitUpdate.AutoSize = true;
+            this.lblQuantityPerUnitUpdate.Location = new System.Drawing.Point(18, 150);
+            this.lblQuantityPerUnitUpdate.Name = "lblQuantityPerUnitUpdate";
+            this.lblQuantityPerUnitUpdate.Size = new System.Drawing.Size(87, 13);
+            this.lblQuantityPerUnitUpdate.TabIndex = 4;
+            this.lblQuantityPerUnitUpdate.Text = "Quantity Per Unit";
+            // 
+            // lblUnitsInStockUpdate
+            // 
+            this.lblUnitsInStockUpdate.AutoSize = true;
+            this.lblUnitsInStockUpdate.Location = new System.Drawing.Point(18, 123);
+            this.lblUnitsInStockUpdate.Name = "lblUnitsInStockUpdate";
+            this.lblUnitsInStockUpdate.Size = new System.Drawing.Size(74, 13);
+            this.lblUnitsInStockUpdate.TabIndex = 3;
+            this.lblUnitsInStockUpdate.Text = "Units In Stock";
+            // 
+            // lblUnitPriceUpdate
+            // 
+            this.lblUnitPriceUpdate.AutoSize = true;
+            this.lblUnitPriceUpdate.Location = new System.Drawing.Point(18, 93);
+            this.lblUnitPriceUpdate.Name = "lblUnitPriceUpdate";
+            this.lblUnitPriceUpdate.Size = new System.Drawing.Size(53, 13);
+            this.lblUnitPriceUpdate.TabIndex = 2;
+            this.lblUnitPriceUpdate.Text = "Unit Price";
+            // 
+            // lblCategoryIdUpdate
+            // 
+            this.lblCategoryIdUpdate.AutoSize = true;
+            this.lblCategoryIdUpdate.Location = new System.Drawing.Point(18, 66);
+            this.lblCategoryIdUpdate.Name = "lblCategoryIdUpdate";
+            this.lblCategoryIdUpdate.Size = new System.Drawing.Size(61, 13);
+            this.lblCategoryIdUpdate.TabIndex = 1;
+            this.lblCategoryIdUpdate.Text = "Category Id";
+            // 
+            // lblProductname2Update
+            // 
+            this.lblProductname2Update.AutoSize = true;
+            this.lblProductname2Update.Location = new System.Drawing.Point(18, 34);
+            this.lblProductname2Update.Name = "lblProductname2Update";
+            this.lblProductname2Update.Size = new System.Drawing.Size(75, 13);
+            this.lblProductname2Update.TabIndex = 0;
+            this.lblProductname2Update.Text = "Product Name";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.gbxProductUpdate);
             this.Controls.Add(this.gbxProductAdd);
             this.Controls.Add(this.gbxProductName);
             this.Controls.Add(this.gbxCategory);
@@ -249,6 +375,8 @@ namespace Northwind.WebFormsUl
             this.gbxProductName.PerformLayout();
             this.gbxProductAdd.ResumeLayout(false);
             this.gbxProductAdd.PerformLayout();
+            this.gbxProductUpdate.ResumeLayout(false);
+            this.gbxProductUpdate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -274,6 +402,18 @@ namespace Northwind.WebFormsUl
         private System.Windows.Forms.TextBox tbxProductName2;
         private System.Windows.Forms.Button btnAddaProduct;
         private System.Windows.Forms.ComboBox cbxCategoryId;
+        private System.Windows.Forms.GroupBox gbxProductUpdate;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ComboBox cbxCategoryIdUpdate;
+        private System.Windows.Forms.TextBox tbxQuantityPerUnitUpdate;
+        private System.Windows.Forms.TextBox tbxUnitsInStockUpdate;
+        private System.Windows.Forms.TextBox tbxUnitPriceUpdate;
+        private System.Windows.Forms.TextBox tbxProductName2Update;
+        private System.Windows.Forms.Label lblQuantityPerUnitUpdate;
+        private System.Windows.Forms.Label lblUnitsInStockUpdate;
+        private System.Windows.Forms.Label lblUnitPriceUpdate;
+        private System.Windows.Forms.Label lblCategoryIdUpdate;
+        private System.Windows.Forms.Label lblProductname2Update;
     }
 }
 
