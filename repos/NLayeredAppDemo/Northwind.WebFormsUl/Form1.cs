@@ -67,7 +67,7 @@ namespace Northwind.WebFormsUl
 
 
             }
-            catch 
+            catch
             {
 
 
@@ -76,16 +76,16 @@ namespace Northwind.WebFormsUl
 
         private void tbxProductName_TextChanged(object sender, EventArgs e)
         {
-            string key=tbxProductName.Text;
+            string key = tbxProductName.Text;
             if (string.IsNullOrEmpty(key))
             {
                 LoadProduct();
             }
             else
-            { 
+            {
                 dgwProduct.DataSource = _productService.GetProductsByProductName(key);
             }
-           
+
         }
 
         private void btnAddaProduct_Click(object sender, EventArgs e)
@@ -94,11 +94,11 @@ namespace Northwind.WebFormsUl
             {
                 ProductName = tbxProductName2.Text,
                 CategoryId = Convert.ToInt32(cbxCategoryId.SelectedValue),
-                UnitPrice=Convert.ToDecimal(tbxUnitPrice.Text),
-                UnitsInStock=Convert.ToInt16(tbxUnitsInStock.Text),
-                QuantityPerUnit=tbxQuantityPerUnit.Text
+                UnitPrice = Convert.ToDecimal(tbxUnitPrice.Text),
+                UnitsInStock = Convert.ToInt16(tbxUnitsInStock.Text),
+                QuantityPerUnit = tbxQuantityPerUnit.Text
             });
-            
+
             MessageBox.Show("Product Added");
             LoadProduct();
 
@@ -115,19 +115,43 @@ namespace Northwind.WebFormsUl
                 UnitsInStock = Convert.ToInt16(tbxUnitsInStockUpdate.Text),
                 QuantityPerUnit = tbxQuantityPerUnitUpdate.Text
 
-            }) ;
+            });
             MessageBox.Show("Product Updated");
             LoadProduct();
         }
 
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            tbxProductName2Update.Text= dgwProduct.CurrentRow.Cells[1].Value.ToString();
-            cbxCategoryIdUpdate.SelectedValue=dgwProduct.CurrentRow.Cells[2].Value;
-            tbxUnitPriceUpdate.Text=dgwProduct.CurrentRow.Cells[3].Value.ToString();
-            tbxUnitsInStockUpdate.Text=dgwProduct.CurrentRow.Cells[4].Value.ToString();
-            tbxQuantityPerUnitUpdate.Text=dgwProduct.CurrentRow.Cells[5].Value.ToString();
+
+            tbxProductName2Update.Text = dgwProduct.CurrentRow.Cells[1].Value.ToString();
+            cbxCategoryIdUpdate.SelectedValue = dgwProduct.CurrentRow.Cells[2].Value;
+            tbxUnitPriceUpdate.Text = dgwProduct.CurrentRow.Cells[3].Value.ToString();
+            tbxUnitsInStockUpdate.Text = dgwProduct.CurrentRow.Cells[4].Value.ToString();
+            tbxQuantityPerUnitUpdate.Text = dgwProduct.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgwProduct.CurrentRow != null)
+            {
+                try
+                {
+                    _productService.Delete(new Product
+                    {
+                        ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value)
+                    });
+                    MessageBox.Show("Product Deleted");
+                    LoadProduct();
+
+                }
+                catch (Exception exception)
+                {
+
+                    MessageBox.Show(exception.Message);
+                }
+
+            }
+
         }
     }
 }

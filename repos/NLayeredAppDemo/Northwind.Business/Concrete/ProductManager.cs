@@ -27,6 +27,21 @@ namespace Northwind.Business.Concrete
             _productDal.Add(product);
         }
 
+        public void Delete(Product product)
+        {
+            try
+            {
+                _productDal.Delete(product);
+
+            }
+            catch 
+            {
+
+                throw new Exception("Silme gerceklesmedi.");
+            }
+           
+        }
+
         public List<Product> GetAll()
         {
             //business code yazilir.

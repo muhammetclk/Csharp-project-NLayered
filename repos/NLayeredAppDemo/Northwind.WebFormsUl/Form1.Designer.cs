@@ -60,6 +60,7 @@ namespace Northwind.WebFormsUl
             this.lblUnitPriceUpdate = new System.Windows.Forms.Label();
             this.lblCategoryIdUpdate = new System.Windows.Forms.Label();
             this.lblProductname2Update = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.gbxCategory.SuspendLayout();
             this.gbxProductName.SuspendLayout();
@@ -355,11 +356,22 @@ namespace Northwind.WebFormsUl
             this.lblProductname2Update.TabIndex = 0;
             this.lblProductname2Update.Text = "Product Name";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(678, 425);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.gbxProductUpdate);
             this.Controls.Add(this.gbxProductAdd);
             this.Controls.Add(this.gbxProductName);
@@ -414,6 +426,7 @@ namespace Northwind.WebFormsUl
         private System.Windows.Forms.Label lblUnitPriceUpdate;
         private System.Windows.Forms.Label lblCategoryIdUpdate;
         private System.Windows.Forms.Label lblProductname2Update;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
