@@ -3,6 +3,7 @@ using Northwind.Business.Concrete;
 using Northwind.DataAccess.Abstract;
 using Northwind.DataAccess.Concrete.EntityFramework;
 using Northwind.DataAccess.Concrete.NHibernate;
+using Northwind.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,7 @@ namespace Northwind.WebFormsUl
             //farkli katmandan newleme  yapmamaliyiz.O yuzden IProductService tipinde tanimliyoruz.
             LoadProduct();
             LoadCategory();
+            LoadCategoryId();
         }
 
         private void LoadCategory()
@@ -46,6 +48,12 @@ namespace Northwind.WebFormsUl
             cbxCategory.DataSource = _categoryService.GetAll();
             cbxCategory.DisplayMember = "CategoryName";//görünen category adı olmali
             cbxCategory.ValueMember = "CategoryId";//sectigimizde ise ıd sindeki degerleri getirmeli
+        }
+        private void LoadCategoryId()
+        {
+            cbxCategoryId.DataSource = _categoryService.GetAll();
+            cbxCategoryId.DisplayMember = "CategoryName";
+            cbxCategoryId.ValueMember = "CategoryId";
         }
 
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +83,22 @@ namespace Northwind.WebFormsUl
                 dgwProduct.DataSource = _productService.GetProductsByProductName(key);
             }
            
+        }
+
+        private void btnAddaProduct_Click(object sender, EventArgs e)
+        {
+            _productService.Add(new Product
+            {
+                ProductName = tbxProductName2.Text,
+                CategoryId = Convert.ToInt32(cbxCategoryId.SelectedValue),
+                UnitPrice=Convert.ToDecimal(tbxUnitPrice.Text),
+                UnitsInStock=Convert.ToInt16(tbxUnitsInStock.Text),
+                QuantityPerUnit=tbxQuantityPerUnit.Text
+            });
+            
+            MessageBox.Show("Product Added");
+            LoadProduct();
+
         }
     }
 }
