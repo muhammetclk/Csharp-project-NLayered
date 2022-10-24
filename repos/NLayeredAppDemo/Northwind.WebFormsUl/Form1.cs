@@ -1,5 +1,6 @@
 ﻿using Northwind.Business.Abstract;
 using Northwind.Business.Concrete;
+using Northwind.Business.DependencyResolvers.Ninject;
 using Northwind.DataAccess.Abstract;
 using Northwind.DataAccess.Concrete.EntityFramework;
 using Northwind.DataAccess.Concrete.NHibernate;
@@ -21,9 +22,11 @@ namespace Northwind.WebFormsUl
         public Form1()
         {
             InitializeComponent();
+            _productService = InstanceFactory.GetInstance<IProductService>();
+            _categoryService = InstanceFactory.GetInstance<ICategoryService>();
             //burayi ilerde düzelticez.
-            _productService = new ProductManager(new EfProductDal());
-            _categoryService = new CategoryManager(new EfCategoryDal());
+           /* _productService = new ProductManager(new EfProductDal());
+            _categoryService = new CategoryManager(new EfCategoryDal());*/
         }
         IProductService _productService;
         ICategoryService _categoryService;
